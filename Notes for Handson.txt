@@ -1,0 +1,163 @@
+launch nodejs cmd prompt 
+npm install @angular/cli -g
+ng new my-app 
+cd my-app
+ng s -o
+ng g c components/shared/header     
+ng g c components/shared/footer -it -is 
+ng g c components/shared/nav -is    ( TODO: ng-content ---refer my repo)
+ng g c components/shared/header/search -is -it --flat --spec=false 
+    update your app.comp.html -- layout 
+
+Header, footer, nav Template page is here 
+Refer: https://jsbin.com/gitufizacu/edit?html,js 
+
+ng g c contacts -is 
+ng g c contacts/add-contact -is 
+ng g c contacts/contact-detail -is
+Templates for the above components
+Refer: https://jsbin.com/nericacepo/3/edit?html
+=> Skip to Routing 
+
+Install augury chrome extension 
+https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd
+
+A Note on Project Structure  ( Initial stage )
+========
+src/
+  app/
+    components/
+      shared/
+        header/
+        footer/
+        nav/
+      contacts/
+        add-contact/
+        contact-details/
+        ...
+        ...
+
+
+Routing  ( Single Page Application ) 
+===========
+Step 1: Add the links and set up paths in nav.component.html
+<ul class="nav navbar-nav">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/directives">Directives</a></li>
+    <li><a href="/contacts">Contacts</a></li>
+</ul>
+
+Step 2: Let's have the routes configured in app-routing.module.ts
+const APP_ROUTES: Routes = [
+  //syntax : path should have string and the component when that path is hit
+  { path: '', component: DataBindingComp },
+  { path: 'directives', component: DirectiveComponent },
+]
+
+Step 3: 
+Add <router-outlet></router-outlet> in layout file (app.component.html)
+
+Step 4: Check the app. The routes should work. But the page will reload. Let's fix it.
+Instead of using <a href> use <a routerLink> in nav.component.html. Now check the app. clicking on links should not reload the page.
+ 
+Step 5: let's have active class. have routerLinkActive in li.
+<li class="nav-item" routerLinkActive="active"> 
+in all the li's.
+
+Step 6: Now, when you see the navigation menu, active class will be added in another link also. 
+Let's fix it.
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+
+Step 7: TODO: Change the title for each link.
+Step 8: TODO: Child / nested routing 
+  Refer: https://github.com/arunprabu/ng4-july18/blob/master/Router%20Instructions%20-%20More%20-%20Child%20Routes.txt
+  https://github.com/arunprabu/ng4-july18
+
+Forms
+=======
+1) Template Driven forms 
+    HTML template form 
+    Adv: 
+      1) easy 
+      2) you will know whats happening 
+    Disadvantages: 
+      1) you wont have more control validation 
+      2) not well suited if you deal with complex forms 
+
+2) Data/Model driven 
+   Reactive forms 
+    created using TS 
+    using angular's Form related classes
+      Adv: 
+        1) you will have more control over a form element incl,. validation 
+      Disadvantages: 
+        1) larger learning curve 
+
+
+Forms in Angular Application
+=============
+  1) optimize the template form for ng 
+  2) some kind of validations -- TODO: Arun
+  Refer: https://codecraft.tv/courses/angular/forms/template-driven/
+
+Today
+======
+Services
+  RXJS & Observables
+  Http methods 
+  Dependency Injection
+Interfaces
+
+Tomorrow
+======
+Reactive forms 
+Form validation
+Pipes
+Guards
+Modules - ( datatables and file upload )
+
+last day
+====
+unit testing 
+build & deployment
+
+
+
+
+
+
+
+
+Reactive Forms (later )
+==================
+Step1: Create FormGroup Model 
+in ts file,
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+contactForm: FormGroup;  // formName
+
+constructor(){
+
+}
+
+ngOnInit(){
+  //create a form 
+  this.contactForm = new FormGroup({
+    username: new FormControl(),
+    phone: new FormControl('', Validators.required),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ])
+  })
+}
+
+Step 2: In html form associate the formgroup model 
+<form [formGroup]="contactForm">
+  <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="username"> 
+</form>
+
+Step3: Will see an error in console. 
+Fix it by adding ReactiveFormsModule in app.module.ts
+
+Step4:
