@@ -12,9 +12,9 @@ ng g c components/shared/header/search -is -it --flat --spec=false
 Header, footer, nav Template page is here 
 Refer: https://jsbin.com/gitufizacu/edit?html,js 
 
-ng g c contacts -is 
-ng g c contacts/add-contact -is 
-ng g c contacts/contact-detail -is
+ng g c components/contacts -is 
+ng g c components/contacts/add-contact -is 
+ng g c components/contacts/contact-detail -is
 Templates for the above components
 Refer: https://jsbin.com/nericacepo/3/edit?html
 => Skip to Routing 
@@ -36,6 +36,10 @@ src/
         contact-details/
         ...
         ...
+    services/
+      contactService
+      
+
 
 
 Routing  ( Single Page Application ) 
@@ -47,11 +51,13 @@ Step 1: Add the links and set up paths in nav.component.html
     <li><a href="/contacts">Contacts</a></li>
 </ul>
 
-Step 2: Let's have the routes configured in app-routing.module.ts
+Step 2: Let's have the routes configured in app-routing.module.ts (prior import is needed)
 const APP_ROUTES: Routes = [
   //syntax : path should have string and the component when that path is hit
-  { path: '', component: DataBindingComp },
-  { path: 'directives', component: DirectiveComponent },
+  { path: '', component: ContactsComponent },
+  { path: 'contacts', component: ContactsComponent },
+  { path: 'contacts/new', component: AddContactComponent },
+  { path: 'contacts/1', component: ContactDetailComponent }
 ]
 
 Step 3: 
@@ -103,21 +109,29 @@ Forms in Angular Application
 Today
 ======
 Services
-  RXJS & Observables
   Http methods 
   Dependency Injection
-Interfaces
+Create Contact flow
 
 Tomorrow
 ======
+Read all contacts - flow 
+read one contact - flow 
+update one contact - flow 
+How to use jquery within ng?
+how to fire bootstrap modal with ng app using jquery? 
+RXJS & Observables
+Http vs HttpClient 
+Interfaces
 Reactive forms 
 Form validation
-Pipes
-Guards
-Modules - ( datatables and file upload )
+
 
 last day
 ====
+Pipes
+Guards
+Modules - ( datatables )
 unit testing 
 build & deployment
 
