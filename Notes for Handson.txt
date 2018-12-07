@@ -38,7 +38,9 @@ src/
         ...
     services/
       contactService
-      
+    models/
+    utils/
+    
 
 
 
@@ -109,28 +111,35 @@ Forms in Angular Application
 Today
 ======
 Services
+  ng g s services/contact 
   Http methods 
   Dependency Injection
-Create Contact flow
+Create Contact flow 
 
 Tomorrow
 ======
-Read all contacts - flow 
-read one contact - flow 
-update one contact - flow 
-How to use jquery within ng?
-how to fire bootstrap modal with ng app using jquery? 
-RXJS & Observables
-Http vs HttpClient 
+Read all contacts - flow (15 mins)
+read one contact - flow (15 mins )
+update one contact - flow (30 mins )
+  How to use jquery within ng?
+  how to fire bootstrap modal with ng app using jquery? 
+  duplicate the object
+
 Interfaces
-Reactive forms 
-Form validation
+  ng g i models/IContact 
+Classes 
+  ng g cl utils/error 
+
 
 
 last day
 ====
 Pipes
 Guards
+Reactive forms 
+Form validation
+RXJS & Observables
+Http vs HttpClient 
 Modules - ( datatables )
 unit testing 
 build & deployment

@@ -10,7 +10,7 @@ const ROUTES: Routes = [
   { path: '', component: ContactsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'contacts/new', component: AddContactComponent },
-  { path: 'contacts/1', component: ContactDetailComponent }
+  { path: 'contacts/:contactId', component: ContactDetailComponent }
 ];
 
 @NgModule({

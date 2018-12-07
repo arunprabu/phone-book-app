@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -9,13 +10,9 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class AddContactComponent implements OnInit {
 
-  contactData: {} = {
-    username: '',
-    phone: '',
-    email: ''
-  }
+  isSaved: boolean;
 
-  constructor( private contactService: ContactService ) {  // dependency injection
+  constructor( private contactService: ContactService, private err: Error ) {  // dependency injection
 
   }
 
@@ -28,6 +25,9 @@ export class AddContactComponent implements OnInit {
     this.contactService.create(formData.value)
                       .subscribe( (resp) => {  // 3. receiving resp from service
                         console.log(resp);
+                        if(resp){
+                          this.isSaved = true;
+                        }
                       })
     
   }

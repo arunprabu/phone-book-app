@@ -22,4 +22,29 @@ export class ContactService {
               }));
   }
 
+
+  getContacts() { // listening for the call from comp
+    return this.http.get("https://jsonplaceholder.typicode.com/users")   // connecting to rest api 
+                    .pipe(map( (resp ) =>{ //3. receive resp from rest api 
+                      console.log(resp);
+                      return resp.json(); //4. send the resp back to comp 
+                    }));
+  }
+
+  getContactById(id) {
+    return this.http.get("https://jsonplaceholder.typicode.com/users/"+id)   // connecting to rest api 
+                    .pipe(map( (resp ) =>{ //3. receive resp from rest api 
+                      console.log(resp);
+                      return resp.json(); //4. send the resp back to comp 
+                    }));
+  }
+  
+  updateContact(updatableContactData){
+
+    return this.http.put("https://jsonplaceholder.typicode.com/users/"+updatableContactData.id, updatableContactData)   // sending data to rest api 
+              .pipe(map( (resp ) =>{ //3. receive resp from rest api 
+                console.log(resp);
+                return resp.json(); //4. send the resp back to comp 
+              }));
+  }
 }

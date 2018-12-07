@@ -11,39 +11,12 @@
       </div>
     </section>
 
-    <div class="card col-md-4">
+    <div class="card col-md-4" *ngFor="let contact of contactList">
       <div class="card-body">
-        <h5 class="card-title">John </h5>
+        <h5 class="card-title">{{ contact.username }} </h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
           card's content.</p>
-        <a routerLink="/contacts/1" class="link">View Details</a>
-      </div>
-    </div>
-
-    <div class="card col-md-4">
-      <div class="card-body">
-        <h5 class="card-title">John </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <a routerLink="/contacts/2" class="link">View Details</a>
-      </div>
-    </div>
-
-    <div class="card col-md-4">
-      <div class="card-body">
-        <h5 class="card-title">John </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <a routerLink="/contacts/3" class="link">View Details</a>
-      </div>
-    </div>
-
-    <div class="card col-md-4">
-      <div class="card-body">
-        <h5 class="card-title">John </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <a routerLink="/contacts/4" class="link">View Details</a>
+        <a routerLink="/contacts/{{contact.id}}" class="link">View Details</a>
       </div>
     </div>
 
