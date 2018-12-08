@@ -131,21 +131,44 @@ Classes
   ng g cl utils/error 
 
 
-
 last day
 ====
+RXJS & Observables 
+  What's Observable?
+        It's a collection that returned over time. 
+        It's a push, that sends multiple values
+        Observable is like restaurant kitchen.
+          placing order 10 pizza 
+          waiter takes that order (10 pizza)
+          kitchen food  (1 by 1 )- -observable 
+          hand it over to waiter (  pizza + ketchup + tissue )
+          waiter will give it you, the subscriber. (desk)
+        If you subscribe to observable, it decides when to give information 
+    Now, What's RxJs?
+        Various method of operators, you can chain on Observables to filter data, sort, 
+Arrow Function
+  https://jsbin.com/bawibax/2/edit?js,console
+Http vs HttpClient 
 Pipes
+  - transform info from one format to another 
+  - ex: timestamp => human readable format 
+      3453543453456 => Sat, 4th Jun 2000
+      test => TEST
+  - refer: about component 
 Guards
+  - protect the routes 
+  - guards for the routes (one or more guards can protect one route)
+Decorators
+build & deployment 
+
+Next class
+===========
+proper way to use jquery, bootstrap -- angular.json
+--subscribe in search form 
+Modules - ( datatables ) (7 minutes)
 Reactive forms 
 Form validation
-RXJS & Observables
-Http vs HttpClient 
-Modules - ( datatables )
 unit testing 
-build & deployment
-
-
-
 
 
 

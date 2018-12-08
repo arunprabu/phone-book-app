@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http } from '@angular/http';  // for observables
 import { Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -19,16 +19,18 @@ export class ContactService {
               .pipe(map( (resp ) =>{ //3. receive resp from rest api 
                 console.log(resp);
                 return resp.json(); //4. send the resp back to comp 
-              }));
+              }));    
   }
 
 
   getContacts() { // listening for the call from comp
     return this.http.get("https://jsonplaceholder.typicode.com/users")   // connecting to rest api 
-                    .pipe(map( (resp ) =>{ //3. receive resp from rest api 
+                    .pipe(map( (resp ) =>{ //3. receive resp from rest api  
                       console.log(resp);
-                      return resp.json(); //4. send the resp back to comp 
-                    }));
+                      return resp.json(); //4. send the resp back to comp   -- // pizaa + ketch up + tissue
+                    }))
+                    
+    //return this.httpClient.get("https://jsonplaceholder.typicode.com/users");
   }
 
   getContactById(id) {

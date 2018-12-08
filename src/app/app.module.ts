@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+//import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,9 +14,11 @@ import { SearchComponent } from './components/shared/header/search.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AddContactComponent } from './components/contacts/add-contact/add-contact.component';
 import { ContactDetailComponent } from './components/contacts/contact-detail/contact-detail.component';
+import { AboutComponent } from './components/about/about.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -23,15 +27,18 @@ import { ContactDetailComponent } from './components/contacts/contact-detail/con
     SearchComponent,
     ContactsComponent,
     AddContactComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    AboutComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule  //,
+    //HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
-})
+} )
 export class AppModule { }

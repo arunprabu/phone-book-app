@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { ContactService } from 'src/app/services/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-contact',
@@ -12,7 +13,7 @@ export class AddContactComponent implements OnInit {
 
   isSaved: boolean;
 
-  constructor( private contactService: ContactService, private err: Error ) {  // dependency injection
+  constructor( private contactService: ContactService, private router: Router ) {  // dependency injection
 
   }
 
@@ -27,6 +28,13 @@ export class AddContactComponent implements OnInit {
                         console.log(resp);
                         if(resp){
                           this.isSaved = true;
+                          setTimeout( () => {
+                            //redirect to all contacts page
+                            this.router.navigateByUrl("/contacts");
+                            //electronics/tv/samsung/89324/edit
+                            // this.router.navigate(['electronics', 'tv', 'samsung', 89324, 'edit']);
+                            
+                          }, 3000 );
                         }
                       })
     
